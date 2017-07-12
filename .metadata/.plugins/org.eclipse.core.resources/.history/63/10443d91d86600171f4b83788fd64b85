@@ -1,0 +1,308 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.yo.boot.test.mapper.ClipModelMapper" >
+  <resultMap id="BaseResultMap" type="ClipModel" >
+    <id column="clipId" property="clipId" jdbcType="VARCHAR" />
+    <result column="name" property="name" jdbcType="VARCHAR" />
+    <result column="userId" property="userId" jdbcType="VARCHAR" />
+    <result column="thumb" property="thumb" jdbcType="VARCHAR" />
+    <result column="types" property="types" jdbcType="INTEGER" />
+    <result column="createdTime" property="createdTime" jdbcType="INTEGER" />
+    <result column="description" property="description" jdbcType="VARCHAR" />
+    <result column="length" property="length" jdbcType="INTEGER" />
+    <result column="url" property="url" jdbcType="VARCHAR" />
+    <result column="aliKey" property="aliKey" jdbcType="VARCHAR" />
+    <result column="dpi" property="dpi" jdbcType="VARCHAR" />
+    <result column="trimIn" property="trimIn" jdbcType="INTEGER" />
+    <result column="trimOut" property="trimOut" jdbcType="INTEGER" />
+    <result column="position" property="position" jdbcType="VARCHAR" />
+    <result column="shootTime" property="shootTime" jdbcType="VARCHAR" />
+    <result column="clipSize" property="clipSize" jdbcType="INTEGER" />
+  </resultMap>
+  <sql id="Base_Column_List" >
+    clipId, name, userId,instId, thumb, types, createdTime, description, length, url, aliKey, 
+    dpi, trimIn, trimOut, position, shootTime, clipSize
+  </sql>
+  <select id="selectByPrimaryKey" resultMap="BaseResultMap" parameterType="map" >
+    select 
+    <include refid="Base_Column_List" />
+    from clip
+    where clipId = #{clipId,jdbcType=VARCHAR}
+  </select>
+  <delete id="deleteByPrimaryKey" parameterType="map" >
+    delete from clip
+    where clipId = #{clipId,jdbcType=VARCHAR}
+  </delete>
+  <insert id="insert" parameterType="ClipModel" >
+    insert into 
+    	clip (clipId, name, userId, instId,thumb, types, createdTime, description, length, 
+    		  url, aliKey, dpi, trimIn, trimOut, position, shootTime, clipSize)
+    values 
+    	( #{clipId,jdbcType=VARCHAR}, #{name,jdbcType=VARCHAR}, #{userId,jdbcType=VARCHAR},
+	      #{instId,jdbcType=VARCHAR}, #{thumb,jdbcType=VARCHAR}, #{types,jdbcType=INTEGER}, 
+	      #{createdTime,jdbcType=INTEGER},#{description,jdbcType=VARCHAR}, #{length,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, 
+	      #{aliKey,jdbcType=VARCHAR}, #{dpi,jdbcType=VARCHAR}, #{trimIn,jdbcType=INTEGER}, #{trimOut,jdbcType=INTEGER}, 
+	      #{position,jdbcType=VARCHAR}, #{shootTime,jdbcType=VARCHAR}, #{clipSize,jdbcType=INTEGER})
+  </insert>
+  <insert id="insertSelective" parameterType="ClipModel" >
+    insert into clip
+    <trim prefix="(" suffix=")" suffixOverrides="," >
+      <if test="clipId != null" >
+        clipId,
+      </if> 
+      <if test="name != null" >
+        name,
+      </if>
+      <if test="userId != null" >
+        userId,
+      </if>
+       <if test="instId != null" >
+        instId,
+      </if>
+      <if test="thumb != null" >
+        thumb,
+      </if>
+      <if test="types != null" >
+        types,
+      </if>
+      <if test="createdTime != null" >
+        createdTime,
+      </if>
+      <if test="description != null" >
+        description,
+      </if>
+      <if test="length != null" >
+        length,
+      </if>
+      <if test="url != null" >
+        url,
+      </if>
+      <if test="aliKey != null" >
+        aliKey,
+      </if>
+      <if test="dpi != null" >
+        dpi,
+      </if>
+      <if test="trimIn != null">
+      	trimIn,
+      </if>
+      <if test="trimOut != null">
+      	trimOut,
+      </if>
+      <if test="position != null">
+      	position,
+      </if>
+      <if test="shootTime != null">
+      	shootTime,
+      </if>
+      <if test="clipSize != null">
+      	clipSize,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides="," >
+      <if test="clipId != null" >
+        #{clipId,jdbcType=VARCHAR},
+      </if>
+     
+      <if test="name != null" >
+        #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        #{userId,jdbcType=VARCHAR},
+      </if>
+       <if test="instId != null" >
+        #{instId,jdbcType=VARCHAR},
+      </if>
+      <if test="thumb != null" >
+        #{thumb,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        #{types,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        #{createdTime,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        #{length,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="aliKey != null" >
+        #{aliKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dpi != null" >
+        #{dpi,jdbcType=VARCHAR},
+      </if>
+      <if test="trimIn != null">
+      	#{trimIn,jdbcType=INTEGER},
+      </if>
+      <if test="trimOut != null">
+      	#{trimOut,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="shootTime != null" >
+        #{shootTime,jdbcType=VARCHAR},
+      </if>
+      <if test="clipSize != null" >
+        #{clipSize,jdbcType=INTEGER},
+      </if>
+    </trim>
+  </insert>
+  <update id="updateByPrimaryKeySelective" parameterType="ClipModel" >
+    update clip
+    <set >
+      <if test="name != null" >
+        name = #{name,jdbcType=VARCHAR},
+      </if>
+      <if test="userId != null" >
+        userId = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="thumb != null" >
+        thumb = #{thumb,jdbcType=VARCHAR},
+      </if>
+      <if test="types != null" >
+        types = #{types,jdbcType=INTEGER},
+      </if>
+      <if test="createdTime != null" >
+        createdTime = #{createdTime,jdbcType=INTEGER},
+      </if>
+      <if test="description != null" >
+        description = #{description,jdbcType=VARCHAR},
+      </if>
+      <if test="length != null" >
+        length = #{length,jdbcType=INTEGER},
+      </if>
+      <if test="url != null" >
+        url = #{url,jdbcType=VARCHAR},
+      </if>
+      <if test="aliKey != null" >
+        aliKey = #{aliKey,jdbcType=VARCHAR},
+      </if>
+      <if test="dpi != null" >
+        dpi = #{dpi,jdbcType=VARCHAR},
+      </if>
+       <if test="trimIn != null">
+      	trimIn = #{trimIn,jdbcType=INTEGER},
+      </if>
+      <if test="trimOut != null">
+      	trimOut = #{trimOut,jdbcType=INTEGER},
+      </if>
+      <if test="position != null" >
+        position = #{position,jdbcType=VARCHAR},
+      </if>
+      <if test="shootTime != null" >
+        shootTime = #{shootTime,jdbcType=VARCHAR},
+      </if>
+      <if test="clipSize != null" >
+        clipSize = #{clipSize,jdbcType=INTEGER},
+      </if>
+    </set>
+    where clipId = #{clipId,jdbcType=VARCHAR}
+  </update>
+  <update id="updateByPrimaryKey" parameterType="ClipModel" >
+    update clip
+    set name = #{name,jdbcType=VARCHAR},
+      userId = #{userId,jdbcType=VARCHAR},
+      thumb = #{thumb,jdbcType=VARCHAR},
+      types = #{types,jdbcType=INTEGER},
+      createdTime = #{createdTime,jdbcType=INTEGER},
+      description = #{description,jdbcType=VARCHAR},
+      length = #{length,jdbcType=INTEGER},
+      url = #{url,jdbcType=VARCHAR},
+      aliKey = #{aliKey,jdbcType=VARCHAR},
+      dpi = #{dpi,jdbcType=VARCHAR},
+      trimIn = #{trimIn,jdbcType=INTEGER},
+      trimOut = #{trimOut,jdbcType=INTEGER},
+      position = #{position,jdbcType=VARCHAR},
+      shootTime = #{shootTime,jdbcType=VARCHAR},
+      clipSize = #{clipSize,jdbcType=INTEGER}
+    where clipId = #{clipId,jdbcType=VARCHAR}
+  </update>
+  
+  <!-- 根据用户id获取其关联的素材集，支持分页 -->
+  <select id="getClipsByUserId" resultMap="BaseResultMap" parameterType="map">
+	  SELECT
+		    <include refid="Base_Column_List" />
+		FROM
+			clip
+		WHERE 1 = 1
+			<if test="userId != null">
+				and userId = #{userId}
+			</if>
+			order by clipId desc
+			<if test="needCount != null and needCount > 0">
+				limit<if test="firstFrom != null and firstFrom > 0">
+						#{firstFrom},
+					 </if>
+				#{needCount}
+			</if>
+  </select>
+  
+  <!-- 根据aliKey查询素材，用于上传素材时防止重复添加同一素材 -->
+  <select id="getClipByAliKey" parameterType="java.lang.String" resultType="ClipModel">
+  	SELECT
+		<include refid="Base_Column_List" />
+	FROM
+		clip
+	WHERE
+		aliKey = #{aliKey,jdbcType=VARCHAR} 
+		LIMIT 1
+  </select>
+  
+  <!-- 批量添加素材 -->
+  <insert id="addBatch" parameterType="java.util.List">
+  	INSERT INTO clip (
+		<include refid="Base_Column_List" />
+	  )
+	VALUES
+	    <foreach collection="list" item="item" index="index" separator="," >  
+	      (
+	      	#{item.clipId,jdbcType=VARCHAR},   
+	      	#{item.name,jdbcType=VARCHAR}, 
+	        #{item.userId,jdbcType=VARCHAR}, 
+	        #{item.instId,jdbcType=VARCHAR}, 
+	        #{item.thumb,jdbcType=VARCHAR}, 
+	        #{item.types,jdbcType=INTEGER}, 
+	        #{item.createdTime,jdbcType=INTEGER}, 
+	        #{item.description,jdbcType=VARCHAR}, 
+	        #{item.length,jdbcType=INTEGER}, 
+	        #{item.url,jdbcType=VARCHAR}, 
+	        #{item.aliKey,jdbcType=VARCHAR}, 
+	        #{item.dpi,jdbcType=VARCHAR},
+	        #{item.trimIn,jdbcType=INTEGER},
+	        #{item.trimOut,jdbcType=INTEGER},
+	        #{item.position,jdbcType=VARCHAR},
+	        #{item.shootTime,jdbcType=VARCHAR},
+	        #{item.clipSize,jdbcType=INTEGER}
+	      ) 
+    </foreach> 
+  </insert>
+  
+  <select id="getLengthByClipId" parameterType="java.lang.String" resultType="java.lang.Integer">
+  	SELECT
+  		c.length AS length
+  	FROM 
+  		clip c
+  	WHERE 
+  		c.clipId = #{clipId,jdbcType=VARCHAR}
+  </select>
+   
+  <delete id="delClipsByScriptId" parameterType="String">
+  	DELETE c
+	FROM
+		clip c,
+		cliprefrence cf
+	WHERE
+		cf.clipId = c.clipId
+	AND cf.scriptId = #{scriptId,jdbcType=VARCHAR}
+  </delete>
+  
+  
+
+</mapper>

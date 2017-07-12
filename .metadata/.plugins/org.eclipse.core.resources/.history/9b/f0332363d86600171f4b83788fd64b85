@@ -1,0 +1,140 @@
+/**
+ * 
+ */
+package com.yo.news.user.vo;
+
+import java.io.Serializable;
+
+import org.codehaus.jackson.annotate.JsonIgnoreProperties;
+
+/**
+ */
+/**
+ * @author JAN
+ * @CreatedTime：2015年4月10日 下午12:06:59 说明：
+ */
+@JsonIgnoreProperties(value = { "detail", "headKey" })
+public class UserOftenModel implements Serializable, Comparable<UserOftenModel>
+{
+ 
+	/**
+	 * 
+	 */
+	private static final long serialVersionUID = 5851103906412173415L;
+	private String userId;
+	private String name;
+	private String head;
+	private String signature;
+	private String headKey;
+	private String vipInfo;
+	private Integer isAdmin;
+	private Integer role;
+	private UserDetailModel detail;
+
+	public String getUserId()
+	{
+		return userId;
+	}
+
+	public void setUserId(String userId)
+	{
+		this.userId = userId;
+	}
+
+	public String getName()
+	{
+		return name;
+	}
+
+	public void setName(String name)
+	{
+		this.name = name;
+	}
+
+	public String getHead()
+	{
+		return head;
+	}
+
+	public void setHead(String head)
+	{
+		this.head = head;
+	}
+
+	public UserDetailModel getDetail()
+	{
+		return detail;
+	}
+
+	public void setDetail(UserDetailModel detail)
+	{
+		this.detail = detail;
+	}
+
+	public String getSignature()
+	{
+		return signature;
+	}
+
+	public void setSignature(String signature)
+	{
+		this.signature = signature;
+	}
+
+	public String getHeadKey()
+	{
+		return headKey;
+	}
+
+	public void setHeadKey(String headKey)
+	{
+		this.headKey = headKey;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	@Override
+	public int compareTo(UserOftenModel userOften)
+	{
+		return 1;
+	}
+
+	public String getVipInfo()
+	{
+		return vipInfo;
+	}
+
+	public void setVipInfo(String vipInfo)
+	{
+		this.vipInfo = vipInfo;
+	}
+
+	public Integer getIsAdmin()
+	{
+		return isAdmin;
+	}
+
+	public void setIsAdmin(Integer isAdmin)
+	{
+		this.isAdmin = isAdmin;
+	}
+
+	/**
+	 * @return the role
+	 */
+	public Integer getRole()
+	{
+		return role;
+	}
+
+	/**
+	 * @param role the role to set
+	 */
+	public void setRole(Integer role)
+	{
+		this.role = role;
+	}
+}

@@ -1,0 +1,8 @@
+package com.yo.news.clip.dao;
+
+import com.yo.news.clip.vo.ClipReportModel;
+import com.yo.news.utils.service.BaseDao;
+
+public interface ClipReportDao extends BaseDao<ClipReportModel>{
+
+}

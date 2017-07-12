@@ -1,0 +1,16 @@
+/**
+ * 
+ */
+package com.yo.news.clip.business.ebo;
+/**
+*/
+/**
+ * @author  JAN   
+ * @CreatedTime：2017年7月12日 下午4:18:03
+ * 说明：
+ */
+public class ClipEbo
+{
+	@Autowired
+	private ClipDao clipDao;
+}

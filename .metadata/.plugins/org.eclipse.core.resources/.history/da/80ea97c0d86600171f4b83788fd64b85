@@ -1,0 +1,74 @@
+package com.yo.news.clip.impl;
+
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.yo.news.clip.dao.ClipCollectionDao;
+import com.yo.news.clip.mapper.ClipCollectionModelMapper;
+import com.yo.news.clip.vo.ClipCollectionModel;
+import com.yo.news.clip.vo.ClipModel;
+import com.yo.news.utils.service.BaseDaoImpl;
+
+@Repository
+public class ClipCollectionImpl extends BaseDaoImpl<ClipCollectionModel> implements ClipCollectionDao {
+
+	@Autowired
+	private ClipCollectionModelMapper clipCollectionModelMapper;
+
+	@Override
+	public int deleteByPrimaryKey(Object key) {
+		return clipCollectionModelMapper.deleteByPrimaryKey(key.toString());
+	}
+
+	@Override
+	public int insert(ClipCollectionModel record) {
+		return 0;
+	}
+
+	@Override
+	public int insertSelective(ClipCollectionModel record) {
+		return 0;
+	}
+
+	@Override
+	public ClipCollectionModel selectByPrimaryKey(Object key) {
+		return clipCollectionModelMapper.selectByPrimaryKey(key.toString());
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(ClipCollectionModel record) {
+		return 0;
+	}
+
+	@Override
+	public int updateByPrimaryKey(ClipCollectionModel record) {
+		return 0;
+	}
+
+	@Override
+	public ClipCollectionModel getModelByUserIdAndclipId(String userId, String clipId) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("clipId", clipId);
+		return clipCollectionModelMapper.getModelByUserIdAndclipId(map);
+	}
+
+	@Override
+	public int insertBatchCollection(List<ClipCollectionModel> batchCollectionModels) {
+		return clipCollectionModelMapper.batchInsertCollection(batchCollectionModels);
+	}
+
+	@Override
+	public List<ClipModel> getCollectionByUserId(String userId, Long fromClipCollectionId, Integer needCount) {
+		Map<String, Object> map = new HashMap<String, Object>();
+		map.put("userId", userId);
+		map.put("fromClipCollectionId", fromClipCollectionId);
+		map.put("needCount", needCount);
+		return clipCollectionModelMapper.getCollectionByUserId(map);
+	}
+
+}

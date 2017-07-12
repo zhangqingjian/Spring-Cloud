@@ -1,0 +1,48 @@
+package com.yo.news.clip.impl;
+
+import org.springframework.stereotype.Repository;
+
+import com.yo.news.clip.dao.ClipReportDao;
+import com.yo.news.clip.vo.ClipReportModel;
+import com.yo.news.utils.service.BaseDaoImpl;
+
+@Repository
+public class ClipReportImpl extends BaseDaoImpl<ClipReportModel> implements ClipReportDao {
+
+	@Override
+	public int deleteByPrimaryKey(Object key) {
+		
+		return 0;
+	}
+
+	@Override
+	public int insert(ClipReportModel record) {
+		
+		return 0;
+	}
+
+	@Override
+	public int insertSelective(ClipReportModel record) {
+		
+		return 0;
+	}
+
+	@Override
+	public ClipReportModel selectByPrimaryKey(Object key) {
+		
+		return null;
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(ClipReportModel record) {
+		
+		return 0;
+	}
+
+	@Override
+	public int updateByPrimaryKey(ClipReportModel record) {
+		
+		return 0;
+	}
+
+}

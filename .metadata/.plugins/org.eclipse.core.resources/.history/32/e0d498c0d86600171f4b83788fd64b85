@@ -1,0 +1,53 @@
+package com.yo.news.clip.impl;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Repository;
+
+import com.yo.news.clip.dao.ClipDelDao;
+import com.yo.news.clip.mapper.ClipDelModelMapper;
+import com.yo.news.clip.vo.ClipDelModel;
+import com.yo.news.utils.service.BaseDaoImpl;
+
+@Repository
+public class ClipDelImpl extends BaseDaoImpl<ClipDelModel> implements ClipDelDao {
+	
+	@Autowired
+	private ClipDelModelMapper clipDelModelMapper;
+
+	@Override
+	public int deleteByPrimaryKey(Object key) {
+		
+		return 0;
+	}
+
+	@Override
+	public int insert(ClipDelModel record) {
+		
+		return 0;
+	}
+
+	@Override
+	public int insertSelective(ClipDelModel record) {
+		
+		return clipDelModelMapper.insertSelective(record);
+	}
+
+	@Override
+	public ClipDelModel selectByPrimaryKey(Object key) {
+		
+		return null;
+	}
+
+	@Override
+	public int updateByPrimaryKeySelective(ClipDelModel record) {
+		
+		return 0;
+	}
+
+	@Override
+	public int updateByPrimaryKey(ClipDelModel record) {
+		
+		return 0;
+	}
+
+}

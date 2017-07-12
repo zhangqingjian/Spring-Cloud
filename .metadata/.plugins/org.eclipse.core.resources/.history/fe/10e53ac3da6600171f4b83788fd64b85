@@ -1,0 +1,34 @@
+/**
+ * 
+ */
+package com.yo.news.clip.business.ebo;
+
+/**
+*/
+/**
+ * @author JAN
+ * @CreatedTime：2017年7月12日 下午4:18:03 说明：
+ */
+public class ClipEbo
+{
+	@Autowired
+	private ClipDao clipDao;
+
+	public GetClipDetailResult getClipDetail(String userId, String clipId)
+	{
+		GetClipDetailResult getClipDetailResult = new GetClipDetailResult();
+		if (MyString.IsNullOrTrimEmpty(userId))
+		{
+			getClipDetailResult.errorCodes = EErrorCodes.INVALID_REQUEST_ERROR;
+			return null;
+		}
+		// 需要判断获取素材和当前用户是不是同一人？
+		ClipModel clipModel = clipDao.selectByPrimaryKey(clipId);
+		if (clipModel == null)
+		{
+			return null;
+		}
+		getClipDetailResult.clipModel = clipModel;
+		return getClipDetailResult;
+	}
+}

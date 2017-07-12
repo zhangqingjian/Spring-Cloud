@@ -1,0 +1,47 @@
+package com.yo.news.clip.dao;
+
+import java.util.List;
+
+import com.yo.news.clip.vo.ClipCollectionModel;
+import com.yo.news.clip.vo.ClipModel;
+import com.yo.news.utils.service.BaseDao;
+
+public interface ClipCollectionDao extends BaseDao<ClipCollectionModel> {
+
+	/**
+	 * 通过用户主键和素材主键获取素材收藏对象，用于判断用户是否收藏过该素材
+	 * 
+	 * @author Michael
+	 * @param userId
+	 *            用户主键
+	 * @param clipId
+	 *            素材主键
+	 * @return
+	 */
+	ClipCollectionModel getModelByUserIdAndclipId(String userId, String clipId);
+
+	/**
+	 * 批量添加素材收藏对象
+	 * 
+	 * @author Michael
+	 * @param batchCollectionModels
+	 *            素材收藏对象集合
+	 * @return
+	 */
+	int insertBatchCollection(List<ClipCollectionModel> batchCollectionModels);
+
+	/**
+	 * 根据用户id获取收藏的素材列表
+	 * 
+	 * @author Michael
+	 * @param userId
+	 *            用户主键
+	 * @param fromClipCollectionId
+	 *            起始记录
+	 * @param needCount
+	 *            需要返回的记录数
+	 * @return
+	 */
+	List<ClipModel> getCollectionByUserId(String userId, Long fromClipCollectionId, Integer needCount);
+
+}

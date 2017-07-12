@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.yo.boot.test;
+/**
+*/
+/**
+ * @author  JAN   
+ * @CreatedTime：2017年7月12日 下午4:26:43
+ * 说明：
+ */
+public class MyBatisConfig
+{
+
+}

@@ -1,0 +1,18 @@
+spring.application.name=Eureka-client-provider2
+#跟踪时，出现日志后将数据放到9977这个服务器的内存中
+spring.zipkin.baseUrl=http://localhost:9411
+spring.zipkin.enabled=true
+spring.sleuth.enabled=true
+#zipkin的服务端口，访问http://localhost:9977就能访问到zipkin的服务数
+server.port=9902
+#服务注册地址
+eureka.instance.hostname=localhost
+eureka.client.serviceUrl.defaultZone=http://localhost:10000/eureka/
+#datasource config
+jdbc.driverClassName=com.mysql.jdbc.Driver
+jdbc.url=jdbc:mysql://10.7.21.19:3306/yonews3
+jdbc.username=root
+jdbc.password=root
+#mybatis config
+mybatis.typeAliasesPackage=com.yo.news.clip.vo
+mybatis.mapperLocations=classpath:com/yo/news/**/mapper/*.xml

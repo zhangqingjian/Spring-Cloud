@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<aop-reference-model>
+<aop-project name="demo">
+<aspect-definition advice-class-name="org.springframework.cloud.sleuth.instrument.scheduling.TraceSchedulingAspect" advice-method-name="traceBackgroundThread(org.aspectj.lang.ProceedingJoinPoint)" advice-type="AROUND" aspect-end-line-number="-1" aspect-name="traceSchedulingAspect" aspect-start-line-number="-1" factory-id="org.springframework.ide.eclipse.aop.core.annotationAspectDefinitionElementFactory" file="/demo/src/main/java/com/example/demo/DemoApplication.java" pointcut-expression="execution (@org.springframework.scheduling.annotation.Scheduled  * *.*(..))" proxy-target-class="true">
+<aop-reference advice-type="AROUND" bean="1:BeansModel|2:demo|3:java:com.example.demo.DemoApplication|8:configWatch:-1" bean-file="/demo/src/main/java/com/example/demo/DemoApplication.java" bean-start-line="-1" factory-id="org.springframework.ide.eclipse.aop.core.aopReferenceElementFactory" file="/demo/src/main/java/com/example/demo/DemoApplication.java" source="=demo/F:\/JAVA\/Maven\/repository\/org\/springframework\/cloud\/spring-cloud-sleuth-core\/1.2.1.RELEASE\/spring-cloud-sleuth-core-1.2.1.RELEASE.jar&lt;org.springframework.cloud.sleuth.instrument.scheduling(TraceSchedulingAspect.class[TraceSchedulingAspect~traceBackgroundThread~Lorg.aspectj.lang.ProceedingJoinPoint;" source-start-line="-1" target="=demo/F:\/JAVA\/Maven\/repository\/org\/springframework\/cloud\/spring-cloud-consul-config\/1.2.1.RELEASE\/spring-cloud-consul-config-1.2.1.RELEASE.jar&lt;org.springframework.cloud.consul.config(ConfigWatch.class[ConfigWatch~watchConfigKeyValues" target-start-line="-1"/>
+</aspect-definition>
+</aop-project>
+<aop-project name="Cloud-Eureka-client-provider-mybaits"/>
+</aop-reference-model>
