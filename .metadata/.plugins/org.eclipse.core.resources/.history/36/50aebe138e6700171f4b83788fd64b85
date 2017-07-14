@@ -1,0 +1,15 @@
+/**
+ * 
+ */
+package com.yo.news.apsect;
+/**
+*/
+/**
+ * @author  JAN   
+ * @CreatedTime：2017年7月13日 下午1:42:29
+ * 说明：
+ */
+public class DataSourceAspect
+{
+
+}
